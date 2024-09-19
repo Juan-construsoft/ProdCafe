@@ -1,0 +1,138 @@
+﻿@model HipatiaVentas.Domain.Dtos.CrearProductoDto
+
+@{
+    ViewBag.Title = "Crear producto";
+    ViewBag.pTitle = "Crear producto";
+    ViewBag.pageTitle = "Forms";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">Producto</h4>
+            </div><!-- end card header -->
+            <div class="card-body">
+                <div class="live-preview">
+                    <form class="row g-3" method="post" enctype="multipart/form-data" asp-controller="Productos" asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row gy-4">
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="Codigo" class="control-label"></label>
+                                    <input asp-for="Codigo" class="form-control" />
+                                    <span asp-validation-for="Codigo" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="Nombre" class="control-label"></label>
+                                    <input asp-for="Nombre" class="form-control" />
+                                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="Descripcion" class="control-label"></label>
+                                    <input asp-for="Descripcion" class="form-control" />
+                                    <span asp-validation-for="Descripcion" class="text-danger"></span>
+                                    <div id="DescripcionBlock" class="form-text">
+                                        Must be 8-20 characters long.
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end col-->
+
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="CategoriaId" class="control-label"></label>
+                                    <select asp-for="CategoriaId" class="form-select" asp-items="ViewBag.TipoCategoria" data-choices data-choices-sorting="true">
+                                        <option value="0">Seleccione...</option>
+                                    </select>
+                                    <span asp-validation-for="CategoriaId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="PresentacionId" class="control-label"></label>
+                                    <select asp-for="PresentacionId" class="form-select" asp-items="ViewBag.Presentacion" data-choices data-choices-sorting="true">
+                                        <option value="0">Seleccione...</option>
+                                    </select>
+                                    <span asp-validation-for="PresentacionId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="MarcaId" class="control-label"></label>
+                                    <select asp-for="MarcaId" class="form-select" asp-items="ViewBag.Marca" data-choices data-choices-sorting="true">
+                                        <option value="0">Seleccione...</option>
+                                    </select>
+                                    <span asp-validation-for="MarcaId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="Stock" class="control-label"></label>
+                                    <input asp-for="Stock" class="form-control" type="number" value="0" disabled />
+                                    <span asp-validation-for="Stock" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" asp-for="Vencimiento" /> @Html.DisplayNameFor(model => model.Vencimiento)
+                                    </label>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="FechaVencimiento" class="control-label"></label>
+                                    <input asp-for="FechaVencimiento" class="form-control" type="date" />
+                                    <span asp-validation-for="FechaVencimiento" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="Foto" class="control-label"></label>
+                                    <input asp-for="Foto" class="form-control" type="file" />
+                                    <span asp-validation-for="Foto" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                                <a asp-action="Index" class="btn btn-info">Regresar</a>
+                            </div>
+                        </div>
+                        <!--end row-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end col-->
+</div>
+<!--end row-->
+<!--end row-->
+@section scripts {
+    <!-- prismjs plugin -->
+    <script src="~/assets/libs/prismjs/prism.js"></script>
+
+    <script src="~/assets/js/app.js"></script>
+}
+
+
+

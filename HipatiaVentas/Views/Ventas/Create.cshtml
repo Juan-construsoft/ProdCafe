@@ -1,0 +1,173 @@
+﻿@model HipatiaVentas.Domain.Dtos.VentaVM
+
+@{
+    ViewBag.Title = "Crear Venta";
+    ViewBag.pTitle = "Crear Venta";
+    ViewBag.pageTitle = "Forms";
+}
+
+<div class="row">
+    <div class="col-xxl-8">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">Detalles de la venta </h4>
+            </div><!-- end card header -->
+
+            <div class="card-body">
+                <div class="live-preview">
+                    <form action="javascript:void(0);">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="mb-3">
+                                    <label asp-for="ProductoId" class="control-label"></label>
+                                    <select asp-for="ProductoId" class="form-select" asp-items="ViewBag.Producto" data-choices data-choices-sorting="true" onchange="mostrarValores()">
+                                        <option value="0">Seleccione...</option>
+                                    </select>
+                                    <span asp-validation-for="ProductoId" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="txtStock" class="form-label">Stock</label>
+                                    <input type="number" class="form-control" id="txtStock" name="Stock" value="0" disabled>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="txtPrecioVentaProducto" class="form-label">Precio Venta</label>
+                                    <input type="number" class="form-control" id="txtPrecioVentaProducto" name="PrecioVenta" value="0" disabled>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="txtCantidadProducto" class="form-label">Cantidad</label>
+                                    <input type="number" class="form-control" id="txtCantidadProducto" name="Cantidad" value="0">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="txtDescuento" class="form-label">Descuento</label>
+                                    <input type="number" class="form-control" id="txtDescuento" name="Descuento" value="0">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <div class="text-end">
+                                        <button type="button" class="btn btn-primary" onclick="AgregarProducto();">Agregar</button>
+                                        <button class="btn btn-danger" id="btnLimpiarLista" onclick="LimpiarLista();"><i class="bi bi-x-circle-fill"></i> Limpiar Lista</button>
+                                    </div>
+                                </div>
+                            </div><!--end col-->
+                            <div class="col-xl-12">
+                                <div class="card">
+                                    <div class="card-header align-items-center d-flex">
+                                        <h4 class="card-title mb-0 flex-grow-1">Productos a Vender</h4>
+                                    </div><!-- end card header -->
+
+                                    <div class="card-body">
+                                        <div class="live-preview">
+                                            <div class="table-responsive">
+                                                <table id="tabla" class="table align-middle table-nowrap mb-0">
+                                                    <thead class="table-light">
+                                                        <tr>
+                                                            <th scope="col">Remover</th>
+                                                            <th scope="col" hidden>Id</th>
+                                                            <th scope="col">Producto</th>
+                                                            <th scope="col">Cantidad</th>
+                                                            <th scope="col">Precio Venta</th>
+                                                            <th scope="col">Descuento</th>
+                                                            <th scope="col">Subtotal</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
+                                                <!-- end table -->
+                                            </div>
+                                            <!-- end table responsive -->
+                                        </div>
+                                    </div><!-- end card-body -->
+                                </div><!-- end card -->
+                            </div><!-- end col -->
+                        </div><!--end row-->
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <a asp-action="Index" class="btn btn-info">Regresar</a>
+
+    </div> <!-- end col -->
+
+
+
+
+    <div class="col-xxl-4">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">Datos generales </h4>
+            </div>
+
+            <div class="card-body">
+                <div class="live-preview">
+                    <form action="javascript:void(0);" class="row g-3">
+                        <div class="col-md-12">
+                            <label for="exampleInputdate" class="form-label">Fecha</label>
+                            <input type="date" class="form-control" id="txtFecha">
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="ClienteId" class="control-label"></label>
+                            <select asp-for="ClienteId" class="form-select" asp-items="ViewBag.Cliente" data-choices data-choices-sorting="true">
+                                <option value="0">Seleccione...</option>
+                            </select>
+                            <span asp-validation-for="ClienteId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="CajaId" class="control-label"></label>
+                            <select asp-for="CajaId" class="form-select" asp-items="ViewBag.Caja" data-choices data-choices-sorting="true">
+                                <option value="0">Seleccione...</option>
+                            </select>
+                            <span asp-validation-for="CajaId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="TipoComprobanteId" class="control-label"></label>
+                            <select asp-for="TipoComprobanteId" class="form-select" asp-items="ViewBag.TipoComprobante" data-choices data-choices-sorting="true">
+                                <option value="0">Seleccione...</option>
+                            </select>
+                            <span asp-validation-for="TipoComprobanteId" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="fullnameInput" class="form-label">Número Comprobante</label>
+                            <input type="text" class="form-control" id="txtNumeroComprobante" placeholder="Número Comprobante">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="fullnameInput" class="form-label">Subtotal</label>
+                            <input type="text" class="form-control" id="txtSubtotal" placeholder="Subtotal" disabled>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="fullnameInput" class="form-label">Iva</label>
+                            <input type="text" class="form-control" id="txtIva" placeholder="Iva" disabled>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="fullnameInput" class="form-label">Total</label>
+                            <input type="text" class="form-control" id="txtTotal" placeholder="Total" disabled>
+                        </div>
+                        <div class="col-12">
+                            <div class="text-end">
+                                <button type="button" class="btn btn-primary" onclick="AdicionarVenta();">Guardar Venta</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end col -->
+</div><!--end row-->
+@section scripts {
+    <!-- choices.js -->
+    <script src="~/views/ventas.js"></script>
+}

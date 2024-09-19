@@ -1,0 +1,126 @@
+﻿@model HipatiaVentas.Domain.Dtos.ShowVentaDto
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalle</h1>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Datos generales de la compra </h5>
+                @Html.Raw(@TempData["Mensaje"])
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.oVenta.FechaVenta)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.oVenta.FechaVenta)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.oVenta.NombreComprobante)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.oVenta.NombreComprobante)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.oVenta.NumeroComprobante)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.oVenta.NumeroComprobante)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.oVenta.NombreCliente)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.oVenta.NombreCliente)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.oVenta.IsActive)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.oVenta.IsActive)
+                    </dd>
+                </dl>
+
+                @* <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a> *@
+                <a asp-action="Index" class="btn btn-info">Regresar</a>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Tabla de detalle de la compra  </h5>
+            </div>
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header align-items-center d-flex">
+                                <h4 class="card-title mb-0 flex-grow-1">Detalle Venta</h4>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <div class="live-preview">
+                                    <div class="table-responsive">
+                                        <table class="table align-middle table-nowrap mb-0">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th scope="col">Producto</th>
+                                                    <th scope="col">Cantidad</th>                                                   
+                                                    <th scope="col">Precio venta</th>
+                                                    <th scope="col">Descuento</th>
+                                                    <th scope="col">Subtotal</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.oDetalleVenta)
+                                                {
+                                                    <tr>
+                                                        <td>@Html.DisplayFor(modelItem => item.NombreProducto) </td>
+                                                        <td>@Html.DisplayFor(modelItem => item.Cantidad)</td>                                                        
+                                                        <td>@Html.DisplayFor(modelItem => item.PrecioVenta)</td>
+                                                        <td>@Html.DisplayFor(modelItem => item.Descuento)</td>
+                                                        <td>@Html.DisplayFor(modelItem => item.Subtotal)</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                            <tfoot class="table-light">
+                                                <tr>
+                                                    <td colspan="4">Sumas</td>
+                                                    <td> @Html.DisplayFor(model => model.oVenta.Subtotal)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4">IVA</td>
+                                                    <td>@Html.DisplayFor(model => model.oVenta.Iva)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="4" class="fs-14"><strong>Total</strong></td>
+                                                    <td class="fs-14"><strong>@Html.DisplayFor(model => model.oVenta.Total)</strong></td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <!-- end table -->
+                                    </div>
+                                    <!-- end table responsive -->
+                                </div>
+                            </div><!-- end card-body -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+                </div>
+                <!--end row-->
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+

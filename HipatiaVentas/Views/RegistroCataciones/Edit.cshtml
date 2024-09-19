@@ -1,0 +1,197 @@
+﻿@model HipatiaVentas.Domain.Dtos.RegistroCatacionDto
+
+@{
+    ViewBag.Title = "Editar registro catación";
+    ViewBag.pTitle = "Editar registro catación";
+    ViewBag.pageTitle = "Forms";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">Registro Cataciones</h4>
+            </div><!-- end card header -->
+            <div class="card-body">
+                <div class="live-preview">
+                    <form class="row g-3" method="post" enctype="multipart/form-data" asp-controller="RegistroCataciones" asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="row gy-4">
+
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="FechaPrueba" class="control-label"></label>
+                                    <input asp-for="FechaPrueba" class="form-control" type="date" />
+                                    <span asp-validation-for="FechaPrueba" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="Predio" class="control-label"></label>
+                                    <input asp-for="Predio" class="form-control" />
+                                    <span asp-validation-for="Predio" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="Lote" class="control-label"></label>
+                                    <input asp-for="Lote" class="form-control" />
+                                    <span asp-validation-for="Lote" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="VariedadId" class="control-label"></label>
+                                    <select asp-for="VariedadId" class="form-select" asp-items="ViewBag.Variedad" data-choices data-choices-sorting="true">
+                                        <option value="0">Seleccione...</option>
+                                    </select>
+                                    <span asp-validation-for="VariedadId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="MetodoId" class="control-label"></label>
+                                    <select asp-for="MetodoId" class="form-select" asp-items="ViewBag.TipoLavado" data-choices data-choices-sorting="true">
+                                        <option value="0">Seleccione...</option>
+                                    </select>
+                                    <span asp-validation-for="MetodoId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="FraganciaAroma" class="control-label"></label>
+                                    <input asp-for="FraganciaAroma" class="form-control" type="number" value="0" step=".01" />
+                                    <span asp-validation-for="FraganciaAroma" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="Sabor" class="control-label"></label>
+                                    <input asp-for="Sabor" class="form-control" type="number" value="0" step=".01" />
+                                    <span asp-validation-for="Sabor" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="SaborResidual" class="control-label"></label>
+                                    <input asp-for="SaborResidual" class="form-control" type="number" value="0" step=".01" />
+                                    <span asp-validation-for="SaborResidual" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="Acidez" class="control-label"></label>
+                                    <input asp-for="Acidez" class="form-control" type="number" value="0" step=".01" />
+                                    <span asp-validation-for="Acidez" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="Cuerpo" class="control-label"></label>
+                                    <input asp-for="Cuerpo" class="form-control" type="number" value="0" step=".01" />
+                                    <span asp-validation-for="Cuerpo" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="Uniformidad" class="control-label"></label>
+                                    <input asp-for="Uniformidad" class="form-control" type="number" value="0" step=".01" />
+                                    <span asp-validation-for="Uniformidad" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="Dulzor" class="control-label"></label>
+                                    <input asp-for="Dulzor" class="form-control" type="number" value="0" step=".01" />
+                                    <span asp-validation-for="Dulzor" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="LimpiezaTaza" class="control-label"></label>
+                                    <input asp-for="LimpiezaTaza" class="form-control" type="number" value="0" step=".01" />
+                                    <span asp-validation-for="LimpiezaTaza" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="Balance" class="control-label"></label>
+                                    <input asp-for="Balance" class="form-control" type="number" value="0" step=".01" />
+                                    <span asp-validation-for="Balance" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="Global" class="control-label"></label>
+                                    <input asp-for="Global" class="form-control" type="number" value="0" step=".01" />
+                                    <span asp-validation-for="Global" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label asp-for="Puntaje" class="control-label"></label>
+                                    <input asp-for="Puntaje" class="form-control" type="number" value="0" step=".01" />
+                                    <span asp-validation-for="Puntaje" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-12 col-md-6">
+                                <div>
+                                    <label asp-for="Defectos" class="control-label"></label>
+                                    <textarea asp-for="Defectos" class="form-control" type="text" rows="3"></textarea>
+                                    <span asp-validation-for="Defectos" class="text-danger"></span>
+                                    <div id="Defectos" class="form-text">
+                                        Must be 8-20 characters long.
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end col-->
+                            <div class="col-xxl-12 col-md-6">
+                                <div>
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <input type="submit" value="Update" class="btn btn-primary" />
+                                <a asp-action="Index" class="btn btn-info">Regresar</a>
+                            </div>
+                        </div>
+                        <!--end row-->
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end col-->
+</div>
+<!--end row-->
+<!--end row-->
+@section scripts {
+    <!-- prismjs plugin -->
+    <script src="~/assets/libs/prismjs/prism.js"></script>
+    <script src="~/assets/js/app.js"></script>
+
+    <script src="~/views/cataciones.js"></script>
+}
+
+

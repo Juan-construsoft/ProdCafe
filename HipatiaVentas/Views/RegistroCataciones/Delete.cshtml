@@ -1,0 +1,153 @@
+﻿@model HipatiaVentas.Models.RegistroCatacion
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>RegistroCatacion</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaPrueba)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaPrueba)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Predio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Predio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Lote)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Lote)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VariedadId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VariedadId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MetodoId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MetodoId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FraganciaAroma)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FraganciaAroma)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sabor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sabor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SaborResidual)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SaborResidual)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Acidez)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Acidez)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cuerpo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cuerpo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Uniformidad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Uniformidad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dulzor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dulzor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LimpiezaTaza)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LimpiezaTaza)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Balance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Balance)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Global)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Global)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Defectos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Defectos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Puntaje)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Puntaje)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreateUser)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreateUser)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ModifiedUser)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ModifiedUser)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

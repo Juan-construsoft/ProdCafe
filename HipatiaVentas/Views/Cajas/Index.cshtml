@@ -1,0 +1,79 @@
+﻿@model IEnumerable<HipatiaVentas.Domain.Dtos.CajaDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary btn-large">Crear nuevo</a>
+</p>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Lista de Registros</h5>
+                @Html.Raw(@TempData["Mensaje"])
+            </div>
+            <div class="card-body">
+                <table id="example" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Codigo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Efectivo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IsActive)
+                            </th>
+                            <th></th>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Codigo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Efectivo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IsActive)
+                                </td>
+                                <td>
+                                    <div class="dropdown d-inline-block">
+                                        <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="ri-more-fill align-middle"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li>
+                                                <a asp-action="Details" asp-route-id="@item.Id" class="dropdown-item"><i class="ri-eye-fill align-bottom me-2 text-muted"></i>View</a>
+                                            </li>
+                                            <li>
+                                                <a asp-action="Edit" asp-route-id="@item.Id" class="dropdown-item edit-item-btn"><i class="ri-pencil-fill align-bottom me-2 text-muted"></i> Edit</a>
+                                            </li>
+                                            <li>
+                                                <a asp-action="Delete" asp-route-id="@item.Id" class="dropdown-item remove-item-btn"><i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i> Delete</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div><!--end col-->
+</div><!--end row-->

@@ -1,0 +1,28 @@
+# Build and Release Folders
+bin-debug/
+bin-release/
+[Oo]bj/
+[Bb]in/
+
+# Other files and folders
+.settings/
+
+# Executables
+*.swf
+*.air
+*.ipa
+*.apk
+
+# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
+# should NOT be excluded as they contain compiler settings and other important
+# information for Eclipse / Flash Builder.
+.vs/HipatiaBackEnd/config/applicationhost.config
+.vs/HipatiaBackEnd/DesignTimeBuild/.dtbcache.v2
+.vs/HipatiaBackEnd/FileContentIndex/7c2a7890-0d33-4cfd-a2fd-b0468632d402.vsidx
+.vs/HipatiaBackEnd/FileContentIndex/fc3430ac-2e1b-437f-96a8-79ca2afd5482.vsidx
+.vs/HipatiaBackEnd/FileContentIndex/read.lock
+.vs/HipatiaBackEnd/v17/.futdcache.v1
+.vs/HipatiaBackEnd/v17/.suo
+.vs/ProjectEvaluation/HipatiaBackEnd.metadata.v2
+.vs/ProjectEvaluation/HipatiaBackEnd.projects.v2
+.vs/
